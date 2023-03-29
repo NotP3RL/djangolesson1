@@ -14,3 +14,17 @@ class Place(models.Model):
 
     def str(self):
         return f'{self.title}'
+
+
+class Image(models.Model):
+    ordinal_number = models.IntegerField('Номер', default=0, db_index=True)
+    image = models.ImageField('Изображение')
+    place = models.ForeignKey(Place, related_name='images', verbose_name='Место', on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Изображение'
+        verbose_name_plural = 'Изображения'
+        ordering = ['ordinal_number']
+
+    def str(self):
+        return f'{self.place.title}'

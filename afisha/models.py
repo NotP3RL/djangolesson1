@@ -12,7 +12,7 @@ class Place(models.Model):
         verbose_name = 'Место'
         verbose_name_plural = 'Места'
 
-    def str(self):
+    def __str__(self):
         return f'{self.title}'
 
 
@@ -26,5 +26,5 @@ class Image(models.Model):
         verbose_name_plural = 'Изображения'
         ordering = ['ordinal_number']
 
-    def str(self):
+    def __str__(self):
         return f'{self.place.title}'

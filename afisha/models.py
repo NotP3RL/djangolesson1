@@ -27,4 +27,4 @@ class Image(models.Model):
         ordering = ['ordinal_number']
 
     def __str__(self):
-        return f'{self.place.title}'
+        return f'{self.ordinal_number} {self.place.title}'

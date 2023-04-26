@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'afisha.apps.AfishaConfig'
+    'afisha.apps.AfishaConfig',
+    'adminsortable2',
 ]
 
 STATIC_URL = 'static/'

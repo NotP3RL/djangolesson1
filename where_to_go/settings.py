@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'afisha.apps.AfishaConfig',
     'adminsortable2',
+    'tinymce',
 ]
 
 STATIC_URL = 'static/'

@@ -10,20 +10,21 @@ def show_index(request):
     template = loader.get_template('index.html')
     places = Place.objects.all()
     context = {
-        "places": {"type": "FeatureCollection",
+        "places": {
+                   "type": "FeatureCollection",
                    "features": [
-                       {
-                           "type": "Feature",
-                           "geometry": {
-                               "type": "Point",
-                               "coordinates": [place.lng, place.lat]
-                           },
-                           "properties": {
-                               "title": place.title,
-                               "placeId": place.id,
-                               "detailsUrl": reverse('place_payload', kwargs={'place_id': place.id})
-                           }
-                       } for place in places
+                                   {
+                                       "type": "Feature",
+                                       "geometry": {
+                                           "type": "Point",
+                                           "coordinates": [place.lng, place.lat]
+                                       },
+                                       "properties": {
+                                           "title": place.title,
+                                           "placeId": place.id,
+                                           "detailsUrl": reverse('place_payload', kwargs={'place_id': place.id})
+                                       }
+                                   } for place in places
                    ]}
     }
     rendered_page = template.render(context, request)

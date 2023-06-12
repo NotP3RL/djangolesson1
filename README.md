@@ -2,6 +2,15 @@
 
 [Пример сайта](http://notp3rl.pythonanywhere.com/)
 
+## Переменные окружения
+
+Часть настроек проекта берётся из переменных окружения. Чтобы их определить, создайте файл `.env` рядом с `manage.py` и запишите туда данные в таком формате: `ПЕРЕМЕННАЯ=значение`.
+
+Доступны 3 переменные:
+- `SECRET_KEY` — секретный ключ проекта
+- `DEBUG` — дебаг-режим. Поставьте `True`, чтобы увидеть отладочную информацию в случае ошибки.
+- `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts)
+
 ## Запуск
 
 Для запуска сайта вам понадобится Python третьей версии.
@@ -24,14 +33,18 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## Переменные окружения
+Вы поймёте, что сделали всё верно, если в консоль выведется это:
 
-Часть настроек проекта берётся из переменных окружения. Чтобы их определить, создайте файл `.env` рядом с `manage.py` и запишите туда данные в таком формате: `ПЕРЕМЕННАЯ=значение`.
+```
+Watching for file changes with StatReloader
+Performing system checks...
 
-Доступны 3 переменные:
-- `SECRET_KEY` — секретный ключ проекта
-- `DEBUG` — дебаг-режим. Поставьте `True`, чтобы увидеть отладочную информацию в случае ошибки.
-- `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts)
+System check identified no issues (0 silenced).
+ДАТА - ВРЕМЯ
+Django version 4.1.7, using settings 'where_to_go.settings'
+Starting development server at ТУТ БУДЕТ ВАША ССЫЛКА
+Quit the server with CTRL-BREAK.
+```
 
 ## Загрузка данных в бд
 

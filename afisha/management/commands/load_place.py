@@ -13,10 +13,10 @@ class Command(BaseCommand):
         response_content = response.json()
         place, created = Place.objects.get_or_create(
             title=response_content['title'],
-            short_description=response_content.get('description_short', ''),
-            long_description=response_content.get('description_long', ''),
             lng=response_content['coordinates']['lng'],
-            lat=response_content['coordinates']['lat']
+            lat=response_content['coordinates']['lat'],
+            defaults={'short_description': 'description_short',
+                      'long_description': 'description_long'}
         )
         if not created:
             return

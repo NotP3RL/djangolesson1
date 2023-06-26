@@ -10,21 +10,21 @@ def show_index(request):
     places = Place.objects.all()
     context = {
         "places": {
-                   "type": "FeatureCollection",
-                   "features": [
-                                   {
-                                       "type": "Feature",
-                                       "geometry": {
-                                           "type": "Point",
-                                           "coordinates": [place.lng, place.lat]
-                                       },
-                                       "properties": {
-                                           "title": place.title,
-                                           "placeId": place.id,
-                                           "detailsUrl": reverse('place_payload', kwargs={'place_id': place.id})
-                                       }
-                                   } for place in places
-                   ]}
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [place.lng, place.lat]
+                    },
+                    "properties": {
+                        "title": place.title,
+                        "placeId": place.id,
+                        "detailsUrl": reverse('place_payload', kwargs={'place_id': place.id})
+                    }
+                } for place in places
+            ]}
     }
     return render(request, 'index.html', context=context)
 

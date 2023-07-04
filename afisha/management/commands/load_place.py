@@ -15,8 +15,8 @@ class Command(BaseCommand):
             title=response_content['title'],
             lng=response_content['coordinates']['lng'],
             lat=response_content['coordinates']['lat'],
-            defaults={'short_description': 'description_short',
-                      'long_description': 'description_long'}
+            defaults={'short_description': response_content['description_short'],
+                      'long_description': response_content['description_long']}
         )
         if not created:
             return

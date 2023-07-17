@@ -23,7 +23,8 @@ def show_index(request):
                         "detailsUrl": reverse('place_payload', kwargs={'place_id': place.id})
                     }
                 } for place in places
-            ]}
+            ]
+        }
     }
     return render(request, 'index.html', context=context)
 

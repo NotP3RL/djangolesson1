@@ -15,12 +15,12 @@ class Command(BaseCommand):
             title=response_content['title'],
             lng=response_content['coordinates']['lng'],
             lat=response_content['coordinates']['lat'],
-            defaults={'short_description': response_content['description_short'],
-                      'long_description': response_content['description_long']}
+            defaults={'short_description': response_content.get('description_short', ''),
+                      'long_description': response_content.get('description_long', '')}
         )
         if not created:
             return
-        for number, image_url in enumerate(response_content['imgs']):
+        for number, image_url in enumerate(response_content.get('imgs', [])):
             try:
                 response = requests.get(image_url)
                 response.raise_for_status()

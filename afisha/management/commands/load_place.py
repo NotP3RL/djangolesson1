@@ -26,7 +26,7 @@ class Command(BaseCommand):
                 response.raise_for_status()
             except requests.exceptions.HTTPError:
                 continue
-            image = Image.objects.create(
+            Image.objects.create(
                 ordinal_number=number,
                 image=ContentFile(response.content, name=f'{place.title} {number}'),
                 place=place
